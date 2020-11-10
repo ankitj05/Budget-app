@@ -1,0 +1,11 @@
+.investment-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.investment{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,11 @@
+.expense-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.expense{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
