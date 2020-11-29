@@ -9,7 +9,7 @@ const InvestmentList = ({ investments, onClick }) => {
     }
 
     return (
-        <div className="investment-list">
+        <div className="investments-list">
             {console.log(investments)}
             {investments.investments.length > 0 ? (
                 <div>

@@ -12,14 +12,16 @@ function App() {
   const totalExpense = useSelector(state => state.totalExpenses);
   const totalInvestment = useSelector(state => state.totalInvestments);
   const dispatch = useDispatch();
-  const [expenseTitle, setExpense] = useState('');
-  const [expenseAmount, setExpenseAmount] = useState(0);
+  const [expenseTitle, setExpenseTitle] = useState('');
+  const [expenseAmount, setExpenseAmount] = useState();
   const [investmentTitle, setInvestment] = useState('');
-  const [investmentAmount, setInvestmentAmount] = useState(0);
-  const [budget, setBudget] = useState(0);
+  const [investmentAmount, setInvestmentAmount] = useState();
+  const [budget, setBudget] = useState();
+  const [amount, setAmount] = useState();
 
-  const updateExpense = e => {
-    setExpense(e.target.value);
+
+  const updateExpense = (e) => {
+    setExpenseTitle(e.target.value);
   }
 
   const updateExpenseAmount = e => {
@@ -38,9 +40,8 @@ function App() {
     }
     dispatch(addExpense(expenseTitle, expenseAmount));
     dispatch(getTotalExpense());
-    console.log(totalExpense);
-    setExpense('');
-    setExpenseAmount(0);
+    setExpenseTitle('');
+    setExpenseAmount('');
   }
 
   const updateInvestment = e => {
@@ -64,7 +65,7 @@ function App() {
     dispatch(addInvestment(investmentTitle, investmentAmount));
     dispatch(getTotalInvestment());
     setInvestment('');
-    setInvestmentAmount(0);
+    setInvestmentAmount('');
   }
 
   const handleDeleteExpense = (id) => {
@@ -79,13 +80,14 @@ function App() {
     dispatch(getTotalInvestment());
   }
 
-  const getBudget = (e) => {
+  const updateBudget = (e) => {
     e.preventDefault();
-    setBudget(e.target.value);
+    setBudget(amount);
+    setAmount();
   }
 
-  const updateBudget = e => {
-    setBudget(e.target.value);
+  const updateAmount = (e) => {
+    setAmount(e.target.value);
   }
 
   return (
@@ -93,63 +95,67 @@ function App() {
       <h1>Budget Tool</h1>
 
       <div className="budget">
-        <form onSubmit={getBudget}>My Budget is
-        <input
+        <form onSubmit={updateBudget} autoComplete="off">My Budget is Rs.
+          <input
+            className="budget-input"
             type="text"
             name="budget"
-            value={budget}
-            placeholder={'Budget'}
-            onChange={updateBudget} />
-          {/* <button type="submit"></button> */}
+            value={amount}
+            placeholder={' '}
+            onChange={updateAmount} />
         </form>
       </div>
 
-      <div className="entry">
-        <div className="expense-entry">
-          <form onSubmit={getExpense}>Expenses
-        <input
+      <div className="expense-entry">
+        <div className="name">Expenses
+          <form className="box" onSubmit={getExpense} autoComplete="off">
+            <input
+              className="input"
               type="text"
               name="expense"
               value={expenseTitle}
-              placeholder={'Expense Title'}
+              placeholder={'Title'}
               onChange={updateExpense} />
             <input
+              className="input"
               type="number"
               name="amount"
               value={expenseAmount}
-              placeholder={0}
+              placeholder={'Rs'}
               onChange={updateExpenseAmount} />
             <button type="submit">Add</button>
           </form>
         </div>
 
-        <div className="investment entry">
-          <form onSubmit={getInvestment}>Investment
-        <input
+        <ExpenseList expenses={expenseList} onClick={(id) => handleDeleteExpense(id)} />
+      </div>
+
+      <div className="investment-entry">
+        <div className="name">Investments
+          <form className="box" onSubmit={getInvestment} autoComplete="off">
+            <input
+              className="input"
               type="text"
               name="investement"
               value={investmentTitle}
-              placeholder={'Investment Title'}
+              placeholder={'Title'}
               onChange={updateInvestment} />
             <input
+              className="input"
               type="number"
               name="amount"
               value={investmentAmount}
-              placeholder={0}
+              placeholder={'Rs'}
               onChange={updateInvestmentAmount} />
             <button type="submit">Add</button>
           </form>
         </div>
-      </div>
-
-      <div className="lists">
-        <ExpenseList expenses={expenseList} onClick={(id) => handleDeleteExpense(id)} />
         <InvestmentList investments={investmentList} onClick={(id) => handleDeleteInvestment(id)} />
       </div>
 
-      {/* <div className="remaining">
-        <h2>Budget left: {}</h2>
-      </div> */}
+      <div className="remaining">
+        <h2>Budget left: Rs. {budget}</h2>
+      </div>
     </div>
   );
 }

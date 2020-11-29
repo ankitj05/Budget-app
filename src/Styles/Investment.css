@@ -6,6 +6,23 @@
 
 .investment{
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
+
+.investment .tile {
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    margin: 3vh;
+    text-align: left;
+    text-transform: capitalize;
+}
+
+.button {
+    margin: 3vh;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}   

@@ -9,7 +9,7 @@ const ExpenseList = ({ expenses, onClick }) => {
     }
 
     return (
-        <div className="expense-list">
+        <div className="expenses-list">
             {console.log(expenses)}
             {expenses.expenses.length > 0 ? (
                 <div>
