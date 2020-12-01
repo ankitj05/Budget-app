@@ -1,5 +1,6 @@
 let initialState = {
-    investments: []
+    investments: [],
+    totalInvestment: 0
 }
 
 const investment = (state = initialState, action) => {

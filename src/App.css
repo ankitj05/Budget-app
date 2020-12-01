@@ -88,8 +88,13 @@ button {
 .remaining {
   position: fixed;
   left: 50%;
-  bottom: 0px;
+  bottom: -1vh;
   transform: translate(-50%, -50%);
   margin: 0 auto;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 3vh;
 }
 

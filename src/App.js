@@ -9,26 +9,26 @@ function App() {
 
   const expenseList = useSelector(state => state.expense);
   const investmentList = useSelector(state => state.investment);
-  const totalExpense = useSelector(state => state.totalExpenses);
-  const totalInvestment = useSelector(state => state.totalInvestments);
   const dispatch = useDispatch();
   const [expenseTitle, setExpenseTitle] = useState('');
-  const [expenseAmount, setExpenseAmount] = useState();
+  const [expenseAmount, setExpenseAmount] = useState(0);
   const [investmentTitle, setInvestment] = useState('');
-  const [investmentAmount, setInvestmentAmount] = useState();
-  const [budget, setBudget] = useState();
-  const [amount, setAmount] = useState();
+  const [investmentAmount, setInvestmentAmount] = useState(0);
+  const [budget, setBudget] = useState(0);
+  const [amount, setAmount] = useState(0);
+  var totalExpense = expenseList.totalExpense;
+  var totalInvestment = investmentList.totalInvestment;
 
 
   const updateExpense = (e) => {
     setExpenseTitle(e.target.value);
   }
 
-  const updateExpenseAmount = e => {
+  const updateExpenseAmount = (e) => {
     setExpenseAmount(e.target.value)
   }
 
-  const getExpense = e => {
+  const getExpense = (e) => {
     e.preventDefault();
     if (!expenseTitle || !expenseTitle.replace(/\s/g, '').length) {
       alert("Please enter the expense title");
@@ -40,6 +40,7 @@ function App() {
     }
     dispatch(addExpense(expenseTitle, expenseAmount));
     dispatch(getTotalExpense());
+    console.log(expenseList.totalExpense);
     setExpenseTitle('');
     setExpenseAmount('');
   }
@@ -83,7 +84,7 @@ function App() {
   const updateBudget = (e) => {
     e.preventDefault();
     setBudget(amount);
-    setAmount();
+    // setAmount(0);
   }
 
   const updateAmount = (e) => {
@@ -154,7 +155,7 @@ function App() {
       </div>
 
       <div className="remaining">
-        <h2>Budget left: Rs. {budget}</h2>
+        <h2>Remaining Budget of Rs. {budget - totalExpense - totalInvestment}</h2>
       </div>
     </div>
   );

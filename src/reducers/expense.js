@@ -1,5 +1,6 @@
 let initialState = {
-    expenses: []
+    expenses: [],
+    totalExpense: 0
 }
 
 const expense = (state = initialState, action) => {
