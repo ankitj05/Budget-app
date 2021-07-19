@@ -8,10 +8,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    flex-direction: row;
 }
 
 .investment .title {
-    color: #000;
+    color: #77dd77;
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -19,10 +20,17 @@
     margin: 3vh;
     text-align: left;
     text-transform: capitalize;
+    transition: .5s ease-in-out;
 }
 
 .button {
     margin: 3vh;
     cursor: pointer;
-    transition-duration: 0.4s;
+    visibility: hidden;
+    transition: .5s ease-in-out;
+}
+
+.investment:hover .button{
+    transform: translateX(-3vh);
+    visibility: visible;
 }   

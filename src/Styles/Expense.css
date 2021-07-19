@@ -9,26 +9,27 @@
     justify-content: space-around;
     flex-wrap: wrap;
     flex-direction: row;
+    text-align: center;
 }
 
 .expense .title{
-    color: #000;
+    color: #ff6961;
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
     margin: 3vh;
-    text-align: left;
     text-transform: capitalize;
 }
 
 .button {
     margin: 3vh;
     cursor: pointer;
-    transition-duration: 0.4s;
+    visibility: hidden;
+    transition: .3s ease-in-out;
 }
 
-/* .button:hover {
-    background-color: red;
-    color: #000;
-} */
+.expense:hover .button{
+    transform: translateX(-3vh);
+    visibility: visible;
+}

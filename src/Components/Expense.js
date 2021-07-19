@@ -6,9 +6,9 @@ const Expense = ({ onClick, text, amount, id }) => {
         <div className="expense">
             <h1 className="title">{text}</h1>
             <h1 className="title">Rs.{amount}</h1>
-            {/* <span className="material-icons delete button" onClick={onClick(id)}>
+            <span className="material-icons delete button" onClick={onClick(id)}>
                 delete
-            </span> */}
+            </span>
         </div>
     )
 }

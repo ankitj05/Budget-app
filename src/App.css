@@ -1,53 +1,68 @@
-.App h1{
-  text-align: center;
+html, body {
+  margin: 0;
+  height: 100%;
+  background: #000;
+
 }
 
-.budget {
+.budget .budget-form{
   align-items: center;
-  margin-bottom: 3vh;
-  margin-top: -3vh;
   text-align: center;
-  /* padding-right: 10vh; */
+  margin-bottom: 4vh;
+  margin-top: 4vh;
+  margin-left: 50vh;
 }
 
-.budget .budget-input {
-  border: none;
-  border-bottom: 1px solid black;
-  outline: none;
-  font-size: 6vh;
-}
-
-.name {
-  text-align: center;
+.budget-input {
+  background-color: #000;
+  text-align: left;
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 6vh;
+  color: #fff;
 }
 
-.expense-entry {
-  float: left;
-  /* border-radius: 3vh; */
-  /* border: 1px solid black; */
-  background: #f0f0f0;
+.budget-label {
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 6vh;
+  color: #fff;
+}
+
+input[type="text"] {
+  border: none;
+  outline: none;
+}
+
+.title {
+  text-align: center;
+  margin-top: 2vh;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 6vh;
+  color: #fff;
+}
+
+.entry{
+  border-radius: 4vh;
+  background: #292929;
   box-sizing: border-box;
-  margin-left: 15vh;
-  width: 75vh;
+  width: 60vh;
   height: 404px;
   overflow: auto;
 }
 
-
-.investment-entry {
-  float: right;
-  /* border-radius: 10px; */
-  /* border: 1px solid black; */
-  background: #f0f0f0;
-  box-sizing: border-box;
-  margin-right: 15vh;
-  width: 75vh;
-  height: 404px;
-  overflow: auto;
+.boxes {
+  display: flex;
+  flex: 2;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 3em 3em;
+  align-items: center;
 }
 
 ::-webkit-scrollbar {
@@ -64,12 +79,12 @@
 }
 
 .input {
-  width: 30%;
+  width: 40%;
   padding: 1vh 2vh;
   margin: 1vh 0;
   border-radius: 35.5px;
   box-sizing: border-box;
-  border: 0.1vh solid rgb(160, 155, 155);
+  border: 0.1vh solid #E5E5E5;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
@@ -83,18 +98,31 @@ button {
   padding: 1vh 2vh;
   margin: 1vh 0;
   border-radius: 35.5px;
+  outline: none;
 }
 
 .remaining {
-  position: fixed;
-  left: 50%;
-  bottom: -1vh;
-  transform: translate(-50%, -50%);
-  margin: 0 auto;
+  position: relative;
+  align-items: center;
   text-align: center;
+  margin: -2vh auto;
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 3vh;
+  font-size: 6vh;
+  color: #fff;
+  background: linear-gradient(to right, #FC2222 0%, #FE6060, #6BFA47  100%);
+  transition: all 1s;
+  border-radius: 35px;
+  width: 70%;
 }
 
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  width: 20%;
+}

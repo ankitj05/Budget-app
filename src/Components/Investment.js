@@ -6,14 +6,9 @@ const Investment = ({ onClick, text, amount, id }) => {
         <div className="investment">
             <h1 className="title">{text}</h1>
             <h1 className="title">Rs.{amount}</h1>
-            {/* <button
-                className="button"
-                type="button"
-                onClick={onClick(id)}>Delete</button> */}
-            {/* <button
-                className="button"
-                type="button"
-                onClick={onClick(id)}>Edit</button> */}
+            <span className="material-icons delete button" onClick={onClick(id)}>
+                delete
+            </span>
         </div>
     )
 }
